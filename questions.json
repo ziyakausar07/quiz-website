@@ -1,0 +1,226 @@
+[
+  {
+    "id": 1,
+    "question": "Which HTML5 semantic element is most appropriate for grouping self-contained content that could be distributed independently, such as a blog post or news story?",
+    "options": [
+      "<section>",
+      "<article>",
+      "<aside>",
+      "<div>"
+    ],
+    "correctAnswer": "<article>",
+    "explanation": "The <article> element is intended for standalone, self-contained compositions (like blog posts, forum posts, or news articles) that could theoretically be reused or syndicated independently.",
+    "category": "Web Development",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 2,
+    "question": "In JavaScript, what will the expression `typeof null` evaluate to?",
+    "options": [
+      "\"null\"",
+      "\"undefined\"",
+      "\"object\"",
+      "\"boolean\""
+    ],
+    "correctAnswer": "\"object\"",
+    "explanation": "In JavaScript, `typeof null` returns 'object'. This is a historical bug and quirk from the earliest version of JavaScript where type tags were used and 000 represented an object reference.",
+    "category": "JavaScript",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 3,
+    "question": "Which CSS property is used to create a staggered, smooth layout shift when flex items wrap to the next line?",
+    "options": [
+      "align-content",
+      "justify-items",
+      "flex-basis",
+      "order"
+    ],
+    "correctAnswer": "align-content",
+    "explanation": "`align-content` defines how the browser distributes space between and around content items along the cross-axis of a flex container when flex-wrap is enabled and there are multiple lines.",
+    "category": "Web Development",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 4,
+    "question": "What is the average time complexity of searching for an element in a balanced Binary Search Tree (BST)?",
+    "options": [
+      "O(1)",
+      "O(n)",
+      "O(log n)",
+      "O(n log n)"
+    ],
+    "correctAnswer": "O(log n)",
+    "explanation": "In a balanced Binary Search Tree (like an AVL or Red-Black tree), the height of the tree is O(log n), so search, insertion, and deletion operations take logarithmic time on average and worst-case.",
+    "category": "Computer Science",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 5,
+    "question": "Which JavaScript method creates a new array with all elements that pass the test implemented by the provided function?",
+    "options": [
+      "Array.prototype.map()",
+      "Array.prototype.filter()",
+      "Array.prototype.find()",
+      "Array.prototype.reduce()"
+    ],
+    "correctAnswer": "Array.prototype.filter()",
+    "explanation": "The `filter()` method creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.",
+    "category": "JavaScript",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 6,
+    "question": "What does the HTTP 429 status code signify?",
+    "options": [
+      "Payment Required",
+      "Request Timeout",
+      "Too Many Requests",
+      "Unavailable For Legal Reasons"
+    ],
+    "correctAnswer": "Too Many Requests",
+    "explanation": "HTTP status code 429 Too Many Requests indicates the user has sent too many requests in a given amount of time (rate limiting).",
+    "category": "Computer Science",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 7,
+    "question": "Which CSS unit is relative to 1% of the viewport's smaller dimension (width or height)?",
+    "options": [
+      "vh",
+      "vw",
+      "vmin",
+      "vmax"
+    ],
+    "correctAnswer": "vmin",
+    "explanation": "1vmin represents 1% of the minimum of viewport height and viewport width (whichever is smaller at the moment of rendering).",
+    "category": "Web Development",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 8,
+    "question": "In the JavaScript Event Loop, which queue has the highest priority for execution after the current call stack clears?",
+    "options": [
+      "Macrotask Queue (Task Queue)",
+      "Microtask Queue",
+      "Animation Frame Queue",
+      "Timer Queue"
+    ],
+    "correctAnswer": "Microtask Queue",
+    "explanation": "Microtasks (such as Promise callbacks, queueMicrotask, MutationObserver) are processed immediately after the current call stack finishes, before the next macrotask (setTimeout, setInterval, I/O) is processed.",
+    "category": "JavaScript",
+    "difficulty": "Hard"
+  },
+  {
+    "id": 9,
+    "question": "Which git command allows you to combine changes from a branch onto another by reapplying commits one by one on top of a new base tip?",
+    "options": [
+      "git merge",
+      "git rebase",
+      "git cherry-pick",
+      "git reset"
+    ],
+    "correctAnswer": "git rebase",
+    "explanation": "`git rebase` reapplies commits from the current branch onto another branch, producing a cleaner, linear commit history without merge commits.",
+    "category": "Computer Science",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 10,
+    "question": "What is the primary purpose of the `defer` attribute on a `<script>` tag?",
+    "options": [
+      "Executes the script asynchronously as soon as it is downloaded without blocking parsing.",
+      "Downloads the script in parallel and executes it only after HTML document parsing is complete.",
+      "Postpones downloading until the window.onload event triggers.",
+      "Runs the script inside a Web Worker thread in the background."
+    ],
+    "correctAnswer": "Downloads the script in parallel and executes it only after HTML document parsing is complete.",
+    "explanation": "`defer` tells the browser to download the script file in parallel while continuing HTML parsing, and guarantees execution in document order right after HTML parsing completes, before `DOMContentLoaded`.",
+    "category": "Web Development",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 11,
+    "question": "Which cryptographic algorithm is asymmetric and widely used for public-key cryptography and digital signatures?",
+    "options": [
+      "AES-256",
+      "RSA",
+      "DES",
+      "SHA-256"
+    ],
+    "correctAnswer": "RSA",
+    "explanation": "RSA (Rivest–Shamir–Adleman) is an asymmetric algorithm that uses a pair of keys (public and private). AES and DES are symmetric, while SHA-256 is a cryptographic hash function.",
+    "category": "Computer Science",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 12,
+    "question": "What is the output of `[1, 2, 3] + [4, 5, 6]` in standard JavaScript?",
+    "options": [
+      "[1, 2, 3, 4, 5, 6]",
+      "\"1,2,34,5,6\"",
+      "NaN",
+      "TypeError: cannot add arrays"
+    ],
+    "correctAnswer": "\"1,2,34,5,6\"",
+    "explanation": "The `+` operator converts both arrays to strings ('1,2,3' and '4,5,6') and concatenates them, resulting in the string '1,2,34,5,6'.",
+    "category": "JavaScript",
+    "difficulty": "Hard"
+  },
+  {
+    "id": 13,
+    "question": "In relational databases, which normal form (NF) ensures that all non-key attributes are fully functionally dependent on the entire primary key, eliminating partial dependencies?",
+    "options": [
+      "First Normal Form (1NF)",
+      "Second Normal Form (2NF)",
+      "Third Normal Form (3NF)",
+      "Boyce-Codd Normal Form (BCNF)"
+    ],
+    "correctAnswer": "Second Normal Form (2NF)",
+    "explanation": "2NF requires the table to be in 1NF and eliminates partial dependencies, meaning every non-prime attribute must depend on the whole candidate key, not just a part of it.",
+    "category": "Computer Science",
+    "difficulty": "Hard"
+  },
+  {
+    "id": 14,
+    "question": "Which CSS pseudo-class matches an element only when it does NOT match a specified selector list?",
+    "options": [
+      ":where()",
+      ":is()",
+      ":not()",
+      ":has()"
+    ],
+    "correctAnswer": ":not()",
+    "explanation": "The `:not()` negation pseudo-class takes a selector list as an argument and represents elements that are not matched by the argument list.",
+    "category": "Web Development",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 15,
+    "question": "What is the result of `0.1 + 0.2 === 0.3` in JavaScript?",
+    "options": [
+      "true",
+      "false",
+      "undefined",
+      "TypeError"
+    ],
+    "correctAnswer": "false",
+    "explanation": "Due to IEEE 754 double-precision binary floating-point representation, 0.1 + 0.2 evaluates to 0.30000000000000004, which does not strictly equal 0.3.",
+    "category": "JavaScript",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 16,
+    "question": "What is the purpose of the Content Security Policy (CSP) HTTP header?",
+    "options": [
+      "Encrypts data payloads sent across web sockets.",
+      "Restricts the sources from which resources (scripts, styles, images) can be loaded to prevent XSS attacks.",
+      "Forces browsers to only communicate over HTTPS.",
+      "Enables cross-origin resource sharing for specific API origins."
+    ],
+    "correctAnswer": "Restricts the sources from which resources (scripts, styles, images) can be loaded to prevent XSS attacks.",
+    "explanation": "Content Security Policy (CSP) helps detect and mitigate Cross-Site Scripting (XSS) and data injection attacks by restricting the origins from which scripts, images, and other assets can load.",
+    "category": "Computer Science",
+    "difficulty": "Medium"
+  }
+]

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Master tech, web development, and computer science concepts with QuizPulse - an interactive, responsive quiz platform featuring instant feedback, real-time scoring, and detailed explanations.">
+  <meta name="keywords" content="quiz, interactive quiz, web development quiz, javascript quiz, coding trivia, learning platform">
+  <title>QuizPulse — Modern Interactive Quiz Platform</title>
+  
+  <!-- Google Fonts for sleek typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+  <!-- Background Glow Accents -->
+  <div class="bg-glow bg-glow-1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow-2" aria-hidden="true"></div>
+
+  <!-- Header Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand" id="brand-logo" role="banner">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Quiz<span class="accent-text">Pulse</span></span>
+          <span class="brand-tag">Interactive Knowledge Test</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Audio Toggle Button -->
+        <button id="sound-toggle-btn" class="icon-btn" title="Toggle Sound Effects" aria-label="Toggle Sound Effects">
+          <svg id="sound-on-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <svg id="sound-off-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle-btn" class="icon-btn" title="Switch Theme" aria-label="Toggle dark/light theme">
+          <svg id="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+          <svg id="sun-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-layout">
+    <!-- SCREEN 1: Welcome / Configuration Screen -->
+    <section id="welcome-screen" class="view-panel active" aria-labelledby="welcome-heading">
+      <div class="glass-card welcome-card">
+        <div class="welcome-badge">
+          <span class="pulse-dot"></span> Test Your Skills
+        </div>
+        <h1 id="welcome-heading" class="hero-title">Challenge Your <span class="gradient-text">Tech Knowledge</span></h1>
+        <p class="hero-subtitle">
+          Put your expertise to the test with multiple-choice questions on Web Development, JavaScript, and Computer Science fundamentals. Get real-time feedback, deep explanations, and complete performance analysis.
+        </p>
+
+        <!-- Quiz Setup Options -->
+        <div class="setup-grid">
+          <div class="setup-field">
+            <label for="category-select" class="field-label">Category</label>
+            <div class="select-wrapper">
+              <select id="category-select" class="custom-select">
+                <option value="all">All Categories (Mixed)</option>
+                <option value="Web Development">Web Development</option>
+                <option value="JavaScript">JavaScript Core</option>
+                <option value="Computer Science">Computer Science</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="setup-field">
+            <label for="question-count-select" class="field-label">Questions</label>
+            <div class="select-wrapper">
+              <select id="question-count-select" class="custom-select">
+                <option value="10">10 Questions (Standard)</option>
+                <option value="5">5 Questions (Quick Test)</option>
+                <option value="all" selected>All Questions (16 Full Exam)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlights / Features badges -->
+        <div class="features-row">
+          <div class="feature-item">
+            <div class="feature-icon">⚡</div>
+            <span>Instant Feedback</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">📊</div>
+            <span>Live Score Tracking</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">💡</div>
+            <span>In-depth Explanations</span>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">🎯</div>
+            <span>Full Answer Review</span>
+          </div>
+        </div>
+
+        <!-- Action Button -->
+        <div class="welcome-action">
+          <button id="start-quiz-btn" class="btn btn-primary btn-lg" type="button">
+            <span>Start Quiz Now</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="keyboard-tip">
+          <kbd>1</kbd>-<kbd>4</kbd> or <kbd>A</kbd>-<kbd>D</kbd> to pick answers • <kbd>Enter</kbd> to proceed
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 2: Active Quiz Interface -->
+    <section id="quiz-screen" class="view-panel" aria-labelledby="question-text" aria-live="polite">
+      <div class="glass-card quiz-card">
+        <!-- Top Stats & Meta Bar -->
+        <div class="quiz-top-bar">
+          <div class="meta-tags">
+            <span id="category-badge" class="badge badge-category">Category</span>
+            <span id="difficulty-badge" class="badge badge-difficulty">Medium</span>
+          </div>
+          
+          <div class="live-score-badge" aria-label="Current score">
+            <span class="score-label">Score</span>
+            <span id="live-score" class="score-value">0</span>
+            <span class="score-max">/ <span id="total-possible-score">10</span></span>
+          </div>
+        </div>
+
+        <!-- Progress Tracking -->
+        <div class="progress-section">
+          <div class="progress-info">
+            <div class="question-counter" id="question-counter" aria-label="Question counter">
+              Question <span id="current-question-num" class="counter-highlight">1</span> of <span id="total-questions-num">10</span>
+            </div>
+            <div class="progress-percentage" id="progress-percentage">10%</div>
+          </div>
+          
+          <div class="progress-track" role="progressbar" id="quiz-progress-bar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-fill" id="progress-fill" style="width: 10%;"></div>
+          </div>
+        </div>
+
+        <!-- Question Body -->
+        <div class="question-container">
+          <h2 id="question-text" class="question-title">
+            Question prompt loading...
+          </h2>
+        </div>
+
+        <!-- Answer Options Grid (4 options) -->
+        <div class="options-container" id="options-container" role="radiogroup" aria-labelledby="question-text">
+          <!-- Dynamic 4 Options inserted via JS -->
+        </div>
+
+        <!-- Answer Feedback Panel (Appears after answer selection) -->
+        <div id="feedback-panel" class="feedback-panel hidden" role="region" aria-label="Answer feedback">
+          <div class="feedback-header" id="feedback-header">
+            <div class="feedback-icon-container" id="feedback-icon-container">
+              <!-- SVG icon injected here -->
+            </div>
+            <div class="feedback-status-text" id="feedback-status-text">
+              Correct Answer!
+            </div>
+          </div>
+
+          <div class="feedback-body">
+            <div class="explanation-box">
+              <div class="explanation-title">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18h6"/>
+                  <path d="M10 22h4"/>
+                  <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5.76.76 1.23 1.52 1.41 2.5"/>
+                </svg>
+                <span>Explanation</span>
+              </div>
+              <p id="explanation-text" class="explanation-text">
+                Explanation text details...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Navigation Controls -->
+        <div class="quiz-footer">
+          <div class="footer-tip" id="keyboard-nav-hint">
+            Tip: Press <kbd>Enter</kbd> to proceed
+          </div>
+          <button id="next-question-btn" class="btn btn-primary" type="button" disabled>
+            <span id="next-btn-text">Next Question</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 3: Final Results Screen -->
+    <section id="results-screen" class="view-panel" aria-labelledby="results-heading">
+      <div class="glass-card results-card">
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+
+        <div class="results-header">
+          <div class="performance-badge" id="performance-badge">
+            🏆 Mastermind!
+          </div>
+          <h2 id="results-heading" class="results-title">Quiz Completed!</h2>
+          <p id="performance-message" class="results-subtitle">
+            Outstanding performance! You've demonstrated a solid mastery of technical concepts.
+          </p>
+        </div>
+
+        <!-- Score Circular Gauge and Percentage -->
+        <div class="score-summary-box">
+          <div class="radial-score-container">
+            <svg class="radial-svg" viewBox="0 0 160 160">
+              <circle class="radial-track" cx="80" cy="80" r="70"></circle>
+              <circle id="radial-progress" class="radial-indicator" cx="80" cy="80" r="70"></circle>
+            </svg>
+            <div class="radial-content">
+              <div id="final-percentage" class="percentage-display">100%</div>
+              <div class="accuracy-label">Accuracy</div>
+            </div>
+          </div>
+          
+          <div class="score-counter-display">
+            <div class="score-points-title">Final Score</div>
+            <div class="score-points-value">
+              <span id="final-score" class="points-earned">10</span>
+              <span class="points-divider">/</span>
+              <span id="final-total" class="points-possible">10</span>
+            </div>
+            <div id="final-rating-tag" class="rating-tag">Grade: A+</div>
+          </div>
+        </div>
+
+        <!-- Results Breakdown Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon stat-total-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </div>
+            <div class="stat-number" id="stat-total-attempted">10</div>
+            <div class="stat-label">Attempted</div>
+          </div>
+
+          <div class="stat-card stat-card-correct">
+            <div class="stat-icon stat-correct-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </div>
+            <div class="stat-number text-success" id="stat-correct-count">9</div>
+            <div class="stat-label">Correct Answers</div>
+          </div>
+
+          <div class="stat-card stat-card-incorrect">
+            <div class="stat-icon stat-incorrect-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </div>
+            <div class="stat-number text-danger" id="stat-incorrect-count">1</div>
+            <div class="stat-label">Incorrect Answers</div>
+          </div>
+        </div>
+
+        <!-- Action Controls -->
+        <div class="results-actions">
+          <button id="review-answers-btn" class="btn btn-secondary btn-lg" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>Review Answers</span>
+          </button>
+
+          <button id="restart-quiz-btn" class="btn btn-primary btn-lg" type="button">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+            <span>Restart Quiz</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCREEN 4: Answer Review Screen -->
+    <section id="review-screen" class="view-panel" aria-labelledby="review-heading">
+      <div class="glass-card review-card">
+        <div class="review-header">
+          <div>
+            <h2 id="review-heading" class="review-title">Detailed Answer Review</h2>
+            <p class="review-subtitle">Examine your choices alongside correct answers and deep conceptual explanations.</p>
+          </div>
+          <button id="back-to-results-btn" class="btn btn-secondary btn-sm" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+            <span>Back to Summary</span>
+          </button>
+        </div>
+
+        <!-- Filter Buttons for Review List -->
+        <div class="review-filters" role="tablist">
+          <button class="filter-tab active" data-filter="all">All Questions (<span id="filter-all-count">0</span>)</button>
+          <button class="filter-tab" data-filter="correct">Correct (<span id="filter-correct-count">0</span>)</button>
+          <button class="filter-tab" data-filter="incorrect">Incorrect (<span id="filter-incorrect-count">0</span>)</button>
+        </div>
+
+        <!-- Review Question List Container -->
+        <div id="review-list-container" class="review-list-container">
+          <!-- Dynamic review cards injected here -->
+        </div>
+
+        <div class="review-bottom-action">
+          <button id="review-restart-btn" class="btn btn-primary" type="button">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+            <span>Restart Quiz</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>QuizPulse &copy; 2026 • Interactive Educational Platform • Designed with Modern Vanilla CSS & JavaScript</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
